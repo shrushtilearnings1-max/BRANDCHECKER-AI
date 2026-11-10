@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useApp } from "@/context/AppContext";
 import { NotificationDropdown } from "./NotificationDropdown";
-import { RoleBadge } from "../common/Badge";
+import {  RoleBadge } from "./src/components/common/Badge";
 import {
   UploadCloud,
   Menu,
