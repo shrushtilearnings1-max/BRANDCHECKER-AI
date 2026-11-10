@@ -63,7 +63,7 @@ export default function ReportDetailPage() {
     }
     if (content && activeAccount) {
       const gen = extractAndVerifyClaims({
-        content: content.currentText,
+        content: content.rawContent,
         title: content.title,
         account: activeAccount,
         contentId: content.id,
@@ -86,7 +86,7 @@ export default function ReportDetailPage() {
     }
     if (content && activeAccount) {
       const gen = simulatePersonaResonance({
-        content: content.currentText,
+        content: content.rawContent,
         targetAudience: content.intendedAudience,
         account: activeAccount,
         contentId: content.id,

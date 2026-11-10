@@ -10,6 +10,7 @@ import {
   ContentIssue,
   ContentItem,
   NotificationItem,
+  PersonaResonanceReport,
   ReviewComment,
   ScoringWeights,
   User,
@@ -346,9 +347,13 @@ export class StorageService {
   }
 
   // --- BRAND DNA DRIFT REPORTS ---
-  static getDriftReport(accountId: string): BrandDnaDriftReport {
-    const account = this.getAccountById(accountId) || this.getAccounts()[0];
-    const items = this.getContentItems(accountId);
+  static getDriftReport(
+    accountId: string,
+    providedAccount?: Account,
+    providedItems?: ContentItem[]
+  ): BrandDnaDriftReport {
+    const account = providedAccount || this.getAccountById(accountId) || this.getAccounts()[0];
+    const items = providedItems || this.getContentItems(accountId);
 
     if (this.isBrowser()) {
       const stored = localStorage.getItem(STORAGE_KEYS.BRAND_DRIFT);
